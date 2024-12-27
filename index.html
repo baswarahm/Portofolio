@@ -82,49 +82,46 @@
         .infinite-animation {
             animation: infinite-bounce 1s infinite;
         }
-
+        
+        @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
     </style>
 </head>
-<body class="min-h-screen animated-bg text-primary overflow-x-hidden" id="home">
+<body class="min-h-screen animated-bg text-primary overflow-x-hidden">
     <!-- Animated Background Overlay -->
     <div id="particles-js" class="fixed inset-0 z-0"></div>
 
     <!-- Navbar -->
     <nav class="fixed top-0 w-full bg-gray-900 z-50">
-        <div class="container mx-auto px-4 py-4 bg-gray-900">
+        <div class="container mx-auto px-4 py-4 md:px-6 md:py-6 bg-gray-900">
             <div class="flex items-center justify-center space-x-4 sm:space-x-6">
-                <a href="#home" class="text-white hover:text-blue-400 relative group">
-                    Home
+                <a href="#home" class="nav-link text-white hover:text-blue-400 relative group">Home
                     <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
-                
-                <a href="#about" class="text-white hover:text-blue-400 relative group">
-                    About
+                <a href="#skills" class="nav-link text-white hover:text-blue-400 relative group">Skills
                     <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
-
-                <a href="#skills" class="text-white hover:text-blue-400 relative group">
-                    Skills
+                <a href="#projects" class="nav-link text-white hover:text-blue-400 relative group">Projects
                     <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
-                
-                <a href="#projects" class="text-white hover:text-blue-400 relative group">
-                    Projects
-                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                
-                <a href="#contact" class="text-white hover:text-blue-400 relative group">
-                    Contact
+                <a href="#contact" class="nav-link text-white hover:text-blue-400 relative group">Contact
                     <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
                 </a>
             </div>
         </div>
     </nav>
 
+
     <!-- Main Content -->
     <main class="relative z-10 flex-grow">
         <!-- Hero Section -->
-        <section class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" id="about">
+        <section class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 section" id="home">
             <div class="container mx-auto">
                 <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
                     <!-- Left Side - Photo -->
@@ -155,16 +152,16 @@
                         <!-- Social Links -->
                         <div class="flex gap-5 justify-center lg:justify-start">
                             <a href="https://github.com/baswarahm" target="_blank" class="transform btn-hover btn-glow " data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-github text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-github text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-150 hover:text-blue-950"></i>
                             </a>
                             <a href="https://www.linkedin.com/in/baswara-hafizh-muttaqin-68a7b4329/" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-linkedin text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-linkedin text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-150 hover:text-blue-600"></i>
                             </a>
                             <a href="https://open.spotify.com/user/5l96n263kr8fomaturpb8px1s?si=fd77bb5fc0ea4297" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-spotify text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-spotify text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-150 hover:text-green-600"></i>
                             </a>
                             <a href="https://www.instagram.com/baswara.hm" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-instagram text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-instagram text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-150 hover:text-fuchsia-600"></i>
                             </a>
                         </div>                       
                     </div>
@@ -314,9 +311,28 @@
                     </h3>
                   </div>
                 </div>
+
+                <div class="relative group">
+                  <div class="absolute -inset-0.5 bg-purple-400 rounded-xl opacity-0 
+                              group-hover:opacity-75 blur-lg transition-all duration-300"></div>
+                  <div class="relative bg-[#1E1E1E] rounded-xl p-4 text-center 
+                              hover:bg-opacity-80 transition-all duration-300">
+                    <div class="w-20 h-20  mx-auto mb-4 bg-[#2A2A2A] rounded-full flex items-center justify-center 
+                                group-hover:scale-110 transition-transform">
+                      <img src="src/image/bootstrap.png" alt="Python" 
+                           class="w-12 h-12 object-contain grayscale group-hover:grayscale-0 
+                                  transition-all duration-300">
+                    </div>
+                    <h3 class="text-white text-lg font-semibold 
+                               group-hover:text-purple-400 transition-colors">
+                      Bootstrap
+                    </h3>
+                  </div>
+                </div>
+
               </div>
             </div>
-          </section>
+        </section>
 
         <!-- Section Below Hero -->
         <section class="py-12 bg-gray-800" data-aos="fade-up" data-aos-duration="1200">
@@ -356,6 +372,52 @@
 
         window.onload = type;
 
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNavLink() {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active', 'text-blue-400');
+            
+            // Tambahkan garis bawah untuk section aktif
+            const underline = link.querySelector('span');
+            if (underline) {
+                underline.classList.remove('scale-x-100');
+            }
+
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active', 'text-blue-400');
+                
+                // Tampilkan garis bawah untuk section aktif
+                const underline = link.querySelector('span');
+                if (underline) {
+                    underline.classList.add('scale-x-100');
+                }
+            }
+        });
+    }
+
+    // Jalankan saat scroll
+    window.addEventListener('scroll', highlightNavLink);
+
+    // Jalankan sekali saat halaman dimuat
+    highlightNavLink();
+});
+        
     </script>
 </body>
 </html>
