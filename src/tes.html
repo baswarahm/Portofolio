@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <style>
+        .typing {
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: black; /* Ganti dengan warna yang diinginkan */
+            }
+        }
+    </style>
+    <title>Typing Animation with AOS</title>
+</head>
+<body>
+
+<div class="flex gap-5 justify-center lg:justify-start">
+    <h1 class="text-3xl" data-aos="fade-up" data-aos-delay="200">
+        <span class="typing">Selamat datang di situs kami!</span>
+    </h1>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>
