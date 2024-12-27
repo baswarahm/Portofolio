@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Modern</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+    }
+    
+    
+    body {
+    font-family: 'Quicksand', sans-serif;
+    
+    height: 100vh;
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    }
+
+
+        /* Custom Animation for Loading Spinner */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .custom-loader {
+            animation: spin 1.5s linear infinite;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            background: #000; /* Set to black */
+        }
+
+        .text-primary {
+            color: #eaeaea; /* Light grey for text contrast */
+        }
+
+        .text-secondary {
+            color: #ffffff; /* Set to white for contrast */
+        }
+
+        .bg-gradient-text {
+            background: linear-gradient(to right, #757575, #bdbdbd);
+            background-clip: text;
+            color: transparent;
+        }
+        .typing-animation {
+        border-right: 2px solid #ffffff; /* Cursor effect */
+        white-space: nowrap; /* Prevent text wrapping */
+        overflow: hidden; /* Hide the text that is not yet visible */
+        animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: #ffffff; }
+    }
+
+    .infinite-animation {
+        animation: infinite-bounce 1s infinite;
+    }
+
+    @keyframes infinite-bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+        
+    </style>
+</head>
+<body class="min-h-screen animated-bg text-primary overflow-x-hidden">
+    <!-- Animated Background Overlay -->
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto">
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+                    <!-- Left Side - Photo -->
+                    <div class="w-full lg:w-1/2 flex justify-center transform hover:scale-105 transition-transform duration-300" data-aos="fade-right" data-aos-duration="1000">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80">
+                            <div class="absolute inset-0 bg-gradient-to-r from-gray-700 to-gray-500 rounded-full blur-lg opacity-70 animate-pulse"></div>
+                            <img src="image/ibas-removebg-preview.png" alt="Ki Fotoku" class="relative rounded-full w-full h-full object-cover border-4 border-gray-700 shadow-2xl pb-1"/>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Content -->
+                    <div class="w-full lg:w-1/2 space-y-3 text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-text">
+                            HI , I'am 
+                        </h1>
+
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-400 typing-animation">
+                            <span id="typing-text"></span>
+                        </h1>
+                        
+                        <h4 class="text-xl md:text-2xl font-semibold text-secondary">
+                            Developer
+                        </h4>
+                        
+                        <p class="text-secondary text-base md:text-lg max-w-lg mx-auto lg:mx-0">
+                            Only a guy from Senior High School from Surakarta Want Explore Technology
+                        </p>
+
+                        <!-- Social Links -->
+                        <div class="flex gap-5 justify-center lg:justify-start">
+                            <a href="https://github.com" target="_blank" class="transform btn-hover btn-glow " data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fab fa-github text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fab fa-linkedin text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                            </a>
+                            <a href="https://spotify.com" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fab fa-spotify text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                            </a>
+                            <a href="https://www.instagram.com/baswara.hm" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
+                                <i class="fab fa-instagram text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                            </a>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Below Hero -->
+        <section class="py-12 bg-gray-800" data-aos="fade-up" data-aos-duration="1200">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold text-primary">Maintenance</h2>
+                <p class="text-secondary mt-4 max-w-2xl mx-auto">
+                    this website in progress rn
+                </p>
+                <div class="mt-6 flex justify-center">
+                    <div class="w-12 h-12 border-4 border-gray-500 border-dashed rounded-full custom-loader"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="partikel/particles.js"></script>
+    <script src="partikel/app.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 200,
+            duration: 1000,
+            once: true,
+        });
+
+
+        const typingText = "Baswara Hafizh Muttaqin";
+        let index = 0;
+
+        function type() {
+            if (index < typingText.length) {
+                document.getElementById("typing-text").innerHTML += typingText.charAt(index);
+                index++;
+                setTimeout(type, 100); // Adjust typing speed here
+            }
+        }
+
+        window.onload = type; // Start typing when the window loads
+    </script>
+</body>
+</html>
