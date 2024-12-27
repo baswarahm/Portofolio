@@ -10,87 +10,117 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         *,
-    *::before,
-    *::after {
-    box-sizing: border-box;
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+    html{
+        scroll-behavior: smooth;
     }
-    
-    
+        
     body {
     font-family: 'Quicksand', sans-serif;
-    
-    height: 100vh;
+    max-height: 100vh;
     margin: 0;
-    
     display: flex;
     flex-direction: column;
+    
+    }
+
+    main {
+        flex-grow: 1; /* Tambahkan ini agar main memenuhi sisa tinggi layar */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Untuk memusatkan konten secara vertikal */
+    }
+
+    section {
+        max-height: 100vh; /* Pastikan setiap section memenuhi tinggi viewport */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 
-        /* Custom Animation for Loading Spinner */
-        @keyframes spin {
+
+        /* Animasi dan Styling Tambahan */
+        @keyframes spin { 
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
         
-        .custom-loader {
-            animation: spin 1.5s linear infinite;
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
 
-        /* Animated Background */
-        .animated-bg {
-            background: #000; /* Set to black */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ffffff; }
         }
 
-        .text-primary {
-            color: #eaeaea; /* Light grey for text contrast */
+        @keyframes infinite-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .text-secondary {
-            color: #ffffff; /* Set to white for contrast */
-        }
-
+        .custom-loader { animation: spin 1.5s linear infinite; }
+        .animated-bg { background: #000; }
+        .text-primary { color: #eaeaea; }
+        .text-secondary { color: #ffffff; }
         .bg-gradient-text {
             background: linear-gradient(to right, #757575, #bdbdbd);
             background-clip: text;
             color: transparent;
         }
         .typing-animation {
-        border-right: 2px solid #ffffff; /* Cursor effect */
-        white-space: nowrap; /* Prevent text wrapping */
-        overflow: hidden; /* Hide the text that is not yet visible */
-        animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+            border-right: 2px solid #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        .infinite-animation {
+            animation: infinite-bounce 1s infinite;
         }
 
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
-
-    @keyframes blink-caret {
-        from, to { border-color: transparent; }
-        50% { border-color: #ffffff; }
-    }
-
-    .infinite-animation {
-        animation: infinite-bounce 1s infinite;
-    }
-
-    @keyframes infinite-bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-        
     </style>
 </head>
 <body class="min-h-screen animated-bg text-primary overflow-x-hidden">
     <!-- Animated Background Overlay -->
     <div id="particles-js" class="fixed inset-0 z-0"></div>
 
+    <!-- Navbar -->
+    <nav class="fixed bottom-0 w-full bg-gray-900 z-50">
+        <div class="container md:top-0 md:fixed mx-auto px-4 py-4 bg-gray-900">
+            <div class="flex items-center justify-center space-x-4 sm:space-x-6">
+                <a href="#home" class="text-white hover:text-blue-400 relative group">
+                    Home
+                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                
+                <a href="#about" class="text-white hover:text-blue-400 relative group">
+                    About
+                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                
+                <a href="#projects" class="text-white hover:text-blue-400 relative group">
+                    Projects
+                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+                
+                <a href="#contact" class="text-white hover:text-blue-400 relative group">
+                    Contact
+                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Main Content -->
-    <main class="relative z-10">
+    <main class="relative z-10 flex-grow">
         <!-- Hero Section -->
-        <section class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <section class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8" id="home">
             <div class="container mx-auto">
                 <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
                     <!-- Left Side - Photo -->
@@ -102,36 +132,35 @@
                     </div>
 
                     <!-- Right Side - Content -->
-                    <div class="w-full lg:w-1/2 space-y-3 text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-text">
-                            HI , I'am 
+                    <div class="w-full lg:w-1/2 space-y-1 lg:space-y-3  text-center lg:text-left" data-aos="fade-left" data-aos-duration="1000">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold">
+                            HI! I'am 
                         </h1>
 
-                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-400 typing-animation">
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold typing-animation">
                             <span id="typing-text"></span>
                         </h1>
                         
-                        <h4 class="text-xl md:text-2xl font-semibold text-secondary">
-                            Developer
-                        </h4>
+                        <h4 class="text-xl md:text-2xl font-serif text-secondary">Developer | Athlete | Gamer</h4>
+                        
                         
                         <p class="text-secondary text-base md:text-lg max-w-lg mx-auto lg:mx-0">
-                            Only a guy from Senior High School from Surakarta Want Explore Technology
+                            Only a guy study in Senior High School from Surakarta Want Explore Technology
                         </p>
 
                         <!-- Social Links -->
                         <div class="flex gap-5 justify-center lg:justify-start">
                             <a href="https://github.com" target="_blank" class="transform btn-hover btn-glow " data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-github text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-github text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
                             </a>
                             <a href="https://www.linkedin.com" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-linkedin text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-linkedin text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
                             </a>
                             <a href="https://spotify.com" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-spotify text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-spotify text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
                             </a>
                             <a href="https://www.instagram.com/baswara.hm" target="_blank" class="transform btn-hover btn-glow" data-aos="zoom-in" data-aos-delay="200">
-                                <i class="fab fa-instagram text-3xl text-secondary transition-all duration-300 hover:scale-125"></i>
+                                <i class="fab fa-instagram text-3xl md:text-4xl text-secondary transition-all duration-300 hover:scale-125"></i>
                             </a>
                         </div>                       
                     </div>
@@ -153,6 +182,7 @@
         </section>
     </main>
 
+
     <script src="src/partikel/particles.js"></script>
     <script src="src/partikel/app.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -163,7 +193,6 @@
             once: true,
         });
 
-
         const typingText = "Baswara Hafizh Muttaqin";
         let index = 0;
 
@@ -171,11 +200,12 @@
             if (index < typingText.length) {
                 document.getElementById("typing-text").innerHTML += typingText.charAt(index);
                 index++;
-                setTimeout(type, 100); // Adjust typing speed here
+                setTimeout(type, 100);
             }
         }
 
-        window.onload = type; // Start typing when the window loads
+        window.onload = type;
+
     </script>
 </body>
 </html>
