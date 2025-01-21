@@ -8,6 +8,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         *,
@@ -98,21 +99,74 @@
     <div id="particles-js" class="fixed inset-0 z-0"></div>
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full bg-gray-900 z-50">
-        <div class="container mx-auto px-4 py-4 md:px-6 md:py-6 bg-gray-900">
-            <div class="flex items-center justify-center space-x-4 sm:space-x-6">
-                <a href="#home" class="nav-link text-white hover:text-blue-400 relative group">Home
-                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#skills" class="nav-link text-white hover:text-blue-400 relative group">Skills
-                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#projects" class="nav-link text-white hover:text-blue-400 relative group">Projects
-                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
-                <a href="#contact" class="nav-link text-white hover:text-blue-400 relative group">Contact
-                    <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </a>
+    <nav class="fixed top-0 w-full bg-gray-900 z-50" x-data="{ open: false }">
+        <div class="container mx-auto px-4 py-3 md:px-6 md:py-6">
+            <div class="flex items-center justify-between">
+                <!-- Logo di Kiri (Desktop) -->
+                <div>
+                    <span class="text-xl font-bold text-white">&lt;/ibaz&gt;</span>
+                </div>
+    
+                <!-- Desktop Menu di Kanan -->
+                <div class="hidden md:flex space-x-8 ml-auto"> <!-- ml-auto untuk push ke kanan -->
+                    <a href="#home" class="nav-link text-white hover:text-blue-400 relative group">
+                        Home
+                        <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    </a>
+                    <a href="#about" class="nav-link text-white hover:text-blue-400 relative group">
+                        About
+                        <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    </a>
+                    <a href="#skills" class="nav-link text-white hover:text-blue-400 relative group">
+                        Skills
+                        <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    </a>
+                    <a href="#projects" class="nav-link text-white hover:text-blue-400 relative group">
+                        Projects
+                        <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    </a>
+                    <a href="#contact" class="nav-link text-white hover:text-blue-400 relative group">
+                        Contact
+                        <span class="absolute bottom-[-10px] left-0 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                    </a>
+                </div>
+    
+                <!-- Hamburger Menu di Kanan (Mobile) -->
+                <div class="md:hidden ml-auto"> <!-- ml-auto untuk push ke kanan -->
+                    <button @click="open = !open" class="text-white focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <!-- Diperbesar ke h-8 w-8 -->
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Mobile Menu (Full Width) -->
+            <div class="md:hidden absolute w-full left-0 bg-gray-900" x-show="open" 
+                 x-transition:enter="transition ease-out duration-200"
+                 x-transition:enter-start="opacity-0 transform -translate-y-2"
+                 x-transition:enter-end="opacity-100 transform translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 transform translate-y-0"
+                 x-transition:leave-end="opacity-0 transform -translate-y-2">
+                <div class="px-4 pt-2 pb-4 space-y-2">
+                    <a href="#home" @click="open = false" class="block py-2 px-4 text-white hover:bg-gray-800 hover:text-blue-500 rounded-lg transition-colors">
+                        Home
+                    </a>
+                    <a href="#about" @click="open = false" class="block py-2 px-4 text-white hover:bg-gray-800 hover:text-blue-500 rounded-lg transition-colors">
+                        About
+                    </a>
+                    <a href="#skills" @click="open = false" class="block py-2 px-4 text-white hover:bg-gray-800 hover:text-blue-500 rounded-lg transition-colors">
+                        Skills
+                    </a>
+                    <a href="#projects" @click="open = false" class="block py-2 px-4 text-white hover:bg-gray-800 hover:text-blue-500 rounded-lg transition-colors">
+                        Projects
+                    </a>
+                    <a href="#contact" @click="open = false" class="block py-2 px-4 text-white hover:bg-gray-800 hover:text-blue-500 rounded-lg transition-colors">
+                        Contact
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -142,7 +196,7 @@
                             <span id="typing-text"></span>
                         </h1>
                         
-                        <h4 class="text-xl md:text-2xl font-serif text-secondary">Developer | Tech Enthusiast</h4>
+                        <h4 class="text-xl md:text-2xl font-serif text-secondary">Entrepeneur | Tech Enthusiast</h4>
                         
                         
                         <p class="text-secondary text-base md:text-lg max-w-lg mx-auto lg:mx-0">
@@ -168,6 +222,55 @@
                 </div>
             </div>
         </section>
+
+        <!-- About Section -->
+<section class="py-20 px-4 bg-gray-900" id="about" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-white relative inline-block">
+                About Me
+                <span class="absolute bottom-[-10px] left-0 w-full h-1 bg-blue-500"></span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Left Column - About & Education -->
+            <div class="space-y-8">
+                <!-- About Card -->
+                <div class="relative group p-6 bg-gray-800 rounded-xl shadow-2xl transition-all duration-300 hover:transform hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Life Journey</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        A passionate tech enthusiast from Surakarta, currently pursuing my senior high school education while diving deep into web development. My journey started with simple HTML pages and evolved into building complex web applications. When I'm not coding, you can find me exploring new technologies or contributing to open-source projects.
+                    </p>
+                </div>
+
+                <!-- Education Timeline -->
+                <div class="relative group p-6 bg-gray-800 rounded-xl shadow-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-6">Education</h3>
+                    <div class="relative pl-8 border-l-2 border-blue-500 space-y-8">
+                        <!-- Timeline Items -->
+                        <div class="relative">
+                            <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[25px] top-2"></div>
+                            <h4 class="text-lg font-semibold text-white">Senior High School</h4>
+                            <p class="text-gray-400">SMA AL - AZHAR SYIFA BUDI SOLO</p>
+                            <p class="text-sm text-blue-400">2023 - Present</p>
+                        </div>
+                        
+                        <div class="relative">
+                            <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[25px] top-2"></div>
+                            <h4 class="text-lg font-semibold text-white">Junior High School</h4>
+                            <p class="text-gray-400">SMP AL - AZHAR SYIFA BUDI SOLO</p>
+                            <p class="text-sm text-blue-400">2020 - 2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        </div>
+    </div>
+</section>
 
         <section class="bg-[#121212] py-20 px-4" data-aos="fade-up" data-aos-duration="1200" id="skills">
             <div class="container mx-auto">
@@ -330,19 +433,6 @@
                   </div>
 
               </div>
-            </div>
-        </section>
-
-        <!-- Section Below Hero -->
-        <section class="py-12 bg-gray-800" data-aos="fade-up" data-aos-duration="1200">
-            <div class="container mx-auto text-center">
-                <h2 class="text-3xl font-bold text-primary">Maintenance</h2>
-                <p class="text-secondary mt-4 max-w-2xl mx-auto">
-                    this website in progress rn
-                </p>
-                <div class="mt-6 flex justify-center">
-                    <div class="w-12 h-12 border-4 border-gray-500 border-dashed rounded-full custom-loader"></div>
-                </div>
             </div>
         </section>
     </main>
